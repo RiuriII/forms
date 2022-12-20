@@ -1,0 +1,332 @@
+@use 'mixins' as *;
+
+body,  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    @include default-font;
+}
+
+.sass-form {
+    min-height: 100vh;
+    @include flex;
+    flex-direction: column;
+
+    .container {
+        width: 950px;
+        height: 90vh;
+        min-height: 550px;
+        @include flex;
+        box-shadow: 5px 5px 10px #00000034;
+
+        .forms-container {
+            width: 50%;
+            height: 600px;
+            position: relative;
+            transition: .6s ease-in-out;
+
+            form {
+                max-width: 650px;
+                height: 550px;
+                padding: 0 2rem;
+                position: absolute;
+                top: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: all .5s ease;
+                @include flex;
+                flex-direction: column;
+                
+                &.form-login {
+                    opacity: 0;
+                    visibility: hidden;
+                    
+                    h2 {
+                        width: 100%;
+                        @include title-font;
+                        text-transform: capitalize;
+                        text-align: left;
+                        margin-bottom: 1rem;
+                        position: relative;
+                        transition-delay: .2s;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            bottom: calc((3rem - 2rem) / 2 - 2px);
+                            left: 0;
+                            display: block;
+                            width: 1.6rem;
+                            height: 5px;
+                            border-radius: 0 5px;
+                            background: $primary-blue;
+                            z-index: -2;
+                        }
+                    }
+                    
+
+                    .input-box {
+                        @include flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        margin-bottom: .5rem;
+                        position: relative;
+                        
+                        input {
+                            height: 40px;
+                            width: 235px;
+                            margin-top: .5rem;
+                            outline: none;
+                            border: 2px solid #4f4f4f;
+                            border-radius: 5px;
+                            padding: .5rem .8rem ;
+                            font: inherit;
+                            transition: all .3s ease;
+                            @include default-font;
+                            position: relative;
+
+                            
+                            &:focus, &:active {
+                                border-color: $black;
+                            }
+
+                            &::placeholder {
+                                color: #4f4f4f;
+                            }
+                        }
+
+                        .text-error {
+                            display: inline-block;
+                            width: 100%;
+                            max-width: 235px;
+                            visibility: hidden;
+                            opacity: 0;
+                            @include default-font;
+                            color: $error-color;
+                            line-height: 1rem;
+                            font-weight: 600;
+                            font-size: .8rem;
+                        }
+                        
+
+                        &.error {
+                            input {
+                                border-color: $error-color;
+                                animation: shake .2s;
+                                animation-iteration-count: 2;
+                            }
+
+                            .text-error {
+                                visibility: visible;
+                                opacity: 1;
+                            } 
+                        }
+
+                        &.success {
+                            input {
+                                border-color: $success-color;
+                                animation: none;
+                            }
+                        }
+                    }
+
+                    .social-icons {
+                        text-align: center;
+
+                        p {
+                            margin-bottom: .5rem;
+                        }
+
+                        .social-icons-wrapper {
+                            @include flex;
+                            margin-bottom: 1rem;
+
+                            a {
+                                width: 32px;
+                                height: 32px;
+                                text-decoration: none;
+                                margin-right: 1rem;
+                                
+                                &:nth-last-of-type(1) {
+                                    margin-right: 0;
+                                }
+                                
+                                img {
+                                    margin: auto 0;
+                                    max-width: 100%;
+                                    max-height: 100%;
+                                }
+                            }
+                        }
+                    }
+
+                    .btn-submit {
+                        display: block;
+                        width: 150px;
+                        height: 40px;
+                        margin: 0 auto;
+                        margin-top: .5rem;
+                        border: none;
+                        border-radius: 10px;
+                        color: #fff;
+                        font-weight: 600;
+                        text-transform: capitalize;
+                        background: $primary-blue;
+                        cursor: pointer;
+                        transition: .3s ease;
+
+                        &:hover {
+                            letter-spacing: 1px;
+                            background: $secondary-blue;
+                        }
+                    }
+                    
+                }
+
+                &.form-register {
+                    @extend .form-login;
+                    opacity: 1;
+                    visibility: visible;
+
+                    h2 {
+                        &::before {
+                            width: 2.5rem;
+                        }
+                    }
+
+                    fieldset {
+                        border: none;
+
+                    }
+
+                    .input-box:nth-child(4) {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .overlay-container {
+            width: 50%;
+            height: 100%;
+            background: url('../src/assets/images/overlay-background.jpg') no-repeat;
+            background-size: cover;
+            @include flex;
+            transition: .5s ease-in-out;
+            
+            .overlay-wrapper {
+                width: 450px;
+                height: 300px;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                @include flex;
+                position: relative;
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                overflow: hidden;
+
+                .title-signIn {
+                    position: absolute;
+                    top: 20%;
+                    left: 2rem;
+                    color: #fff;
+                    transition: .3s linear;
+
+                    h1 {
+                        @include title-font;
+                        text-align: left;
+                    }
+
+                }
+    
+                .title-signUp {
+                    @extend .title-signIn;
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(-100%);
+                }
+    
+                .btn-overlay {
+                    width: 150px;
+                    height: 40px;
+                    margin-top: auto;
+                    @include flex;
+                    font-weight: 600;
+                    color: #fff;
+                    text-transform: capitalize;
+                    border: none;
+                    background: $primary-purple;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    transition: .3s ease-in-out;
+
+                    &:hover {
+                        background: $secondary-purple;
+                        letter-spacing: 1px;
+                    }
+
+                    .btn-text-signIn{
+                        position: absolute;
+                    }
+
+                    .btn-text-signUp {
+                        @extend .btn-text-signIn;
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+
+                }
+            }
+
+        }
+
+        &.active {
+            .forms-container {
+                transform: translateX(100%);
+                form {
+                    &.form-login {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+    
+                    &.form-register {
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                }
+            }
+
+            .overlay-container {
+                transform: translateX(-100%);
+
+                .overlay-wrapper {
+                    
+                .title-signIn {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .title-signUp {
+                    transform: translateY(0);
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .btn-overlay{
+                    .btn-text-signIn{
+                        opacity: 0;
+                        visibility: hidden;                       
+                    }
+
+                    .btn-text-signUp {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+                }
+            }
+        }
+    }
+}

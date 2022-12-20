@@ -1,0 +1,36 @@
+
+$primary-blue: #0692E1;
+$secondary-blue: #0379bd;
+$primary-purple: #902bac;
+$secondary-purple: #652381;
+$black: #0D0C0C;
+$success-color: #28a745;
+$error-color: #dc3545;
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin title-font {
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+@mixin default-font {
+    font-size: 1rem;
+    line-height: 2rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes shake {
+    0% {left: 0;}
+    25% {left: 7px;}
+    50% {left: 0;}
+    75% {left: -7px;}
+    100% {left: 0;}
+}
