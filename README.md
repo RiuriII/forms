@@ -2,10 +2,10 @@
 
 ## :computer: Sobre este repositório
 ------
-O objetivo deste repositório é conter diversos formulários feitos com tecnologias variadas, indo desde o básico como html, css, sass, js, até chegar em tecnologias como tailwindcss, react, typescript, vue.js....
+O objetivo deste repositório é conter diversos formulários feitos com tecnologias variadas, como html, css, sass, js,  tailwindcss, react, typescript, vue.js....
 
 
-> https://github.com/RiuriII/forms.git  
+> git clone https://github.com/RiuriII/forms.git  
 
 &nbsp; 
 
@@ -22,5 +22,11 @@ Formulário de login e registro, utilizando:
 &nbsp; 
 ## :art: Layout
 
-![Layout do formulário](./layout-images/form1-layout.png)
+![Layout do formulário](./layout-images/form-login.png)
+### Mobile layout
+![Layout do formulário](./layout-images/form-login-mobile.png)
 &nbsp; 
+
+## 📃 Licença
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
