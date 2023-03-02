@@ -9,11 +9,10 @@ function changeForm() {
 function emailValidation(email) {
     const emailRegexp = new RegExp(/\S+@\S+\.\S+/);
     return emailRegexp.test(email)
-    
 } 
 
 function passwordValidation(password) {
-    const passwordRegexp = new RegExp(/^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,16}$/)
+    const passwordRegexp = new RegExp(/^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,}$/)
     return passwordRegexp.test(password)
 }
 
@@ -29,9 +28,10 @@ function addParentElementClass(element, add) {
 
 function formValidation(event) {
     event.preventDefault()
-    const currentForm = event.target.parentNode.classList.value
+    // const currentForm = event.target.parentNode.classList.value
+    const currentForm = event.target.parentNode.getAttribute('id')
     
-    const currentFormInputs = document.querySelectorAll(`.${currentForm} input`)
+    const currentFormInputs = document.querySelectorAll(`#${currentForm} input`)
         .forEach(input => {
             const inputType = input.getAttribute('type')
 
