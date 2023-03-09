@@ -210,7 +210,7 @@ body,  * {
         .overlay-container {
             width: 50%;
             height: 100%;
-            background: url('../src/assets/images/overlay-background.jpg') no-repeat;
+            background: url('../assets/images/overlay-background.jpg') no-repeat;
             background-size: cover;
             @include flex;
             transition: .5s ease-in-out;

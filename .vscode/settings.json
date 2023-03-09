@@ -3,7 +3,7 @@
         {
             "format": "compressed",
             "extensionName": ".css",
-            "savePath": "/login-register-form/dist",
+            "savePath": "/login-register-form/src/dist",
             "savePathReplacementPairs": null
         }
     ],
