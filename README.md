@@ -23,6 +23,7 @@ Formulário de login e registro, utilizando:
 ## :art: Layout
 
 ![Layout do formulário](./layout-images/form-login.png)
+![Layout do formulário](./layout-images/form-login-2.png)
 ### Mobile layout
 ![Layout do formulário](./layout-images/form-login-mobile.png)
 &nbsp; 
